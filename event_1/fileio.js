@@ -19,7 +19,7 @@ var fs = require("fs");
 fs.mkdir("stuff", function() {
     fs.readFile("readMe.txt", "utf-8", function(err, data){
         fs.writeFile("./stuff/writeMe.txt", data, function(){
-            console.log("writeMe.txt hsa finished");
+            console.log("writeMe.txt has finished");
         })
     })
 });
