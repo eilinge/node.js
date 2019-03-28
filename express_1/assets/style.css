@@ -1,0 +1,19 @@
+h1{
+    text-align: center;
+}
+
+p{
+    font-size:20px;
+}
+
+span{
+    font-size:25px;
+    color: red;
+}
+
+input{
+    margin: 12px, 0px;
+    padding: 2px, 0px;
+    /* float: left; */
+    /* border: 1px; */
+}
