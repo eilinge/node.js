@@ -11,7 +11,7 @@ function startServer(route, handle) {
         request.on("error", function(err){
             console.log(err);
         }).on("data", function(chunk) {
-            Data.push(chunk);
+            Data.push(chunk);  // 提取表单数据
         }).on("end", function(){
             if(request.method === "POST"){
                 if (Data.length > 1e6){
