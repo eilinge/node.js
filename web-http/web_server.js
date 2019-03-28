@@ -21,7 +21,7 @@ function startServer(route, handle) {
                 route(handle, pathname, response, querystring.parse(Data));
             } else if(request.method === "GET") {
                 var params = url.parse(request.url, true).query;
-            route(handle, pathname, response, params);
+                route(handle, pathname, response, params);
             }
         })
     };
