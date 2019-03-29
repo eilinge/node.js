@@ -12,8 +12,8 @@ span{
 }
 
 input{
-    margin: 12px, 0px;
-    padding: 2px, 0px;
+    margin: 1px;
+    /* padding: 2px, 0px; */
     /* float: left; */
     /* border: 1px; */
 }

@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
-<body>
-        <!-- <form action="http://localhost:3000/process_get" method="GET">
-            First Name: <input type="text" name="first_name">  <br>
-             
-            Last Name: <input type="text" name="last_name">
-            <input type="submit" value="Submit">
-        </form> -->
-        <form action="http://localhost:3000/process_post" method="POST">
-            First Name: <input type="text" name="first_name">  <br>
-             
-            Last Name: <input type="text" name="last_name">
-            <input type="submit" value="Submit">
-        </form>
+<body>  
+    <h2>methods get</h2>
+    <form action="/process_get" method="GET">
+        First Name: <input type="text" name="first_name">  <br>
+        Last Name: <input type="text" name="last_name">
+    <input type="submit" value="Submit">
+    </form>
+    <h2>methods Post</h2>
+    <form action="/process_post" method="POST">
+        First Name: <input type="text" name="first_name">  <br>
+        Last Name: <input type="text" name="last_name">
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>

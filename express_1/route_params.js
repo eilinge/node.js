@@ -7,12 +7,12 @@ app.use(bodyParser.json());
 app.use(express.static('assets'));
 
 app.get('/', function(req, res) {
+    console.log("eilinge");
     console.dir(req.query);
     res.send("You request to see a profile with the id of " + req.query.find);
 })
 
 app.post('/home', function(req, res) {
-    console.dir("req.body");
     console.dir(req.body);
     res.send("Ok");
 })
@@ -23,7 +23,7 @@ app.get('/profile/:id/:name', function(req, res) {
     res.send("You request to see a profile with the id of " + req.params.id);
 })
 
-var server = app.listen(3000, function() {
+var server = app.listen(3001, function() {
     var host = server.address().address;
     var port = server.address().port;
 

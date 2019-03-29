@@ -14,7 +14,7 @@ var data={
 };
 //交互方式
 app.get('/',function (req, res) {
-    res.render('index',data)
+    res.render('index', data)
 });
 
 //另外一种方式:
