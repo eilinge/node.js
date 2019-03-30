@@ -9,6 +9,17 @@ mongoose.connect('mongodb://localhost/todo', {
     console.log("connect successfully")
 });
 
+var todoSchema = new mongoose.Schema({
+    item: String
+});
+
+var Todo = mongoose.model("Todo", todoSchema);
+
+var itemOne = Todo({item: "get milk"}).save(function(err){
+    if (err) throw err;
+    console.log("insert successfully")
+})
+
 var app = express()
 
 app.set("view engine", "ejs")
