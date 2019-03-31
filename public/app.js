@@ -2,7 +2,7 @@ var express = require("express");
 var controller = require("./controllers/todoController")
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/todo', {
+mongoose.connect('mongodb://localhost/tests', {
     useNewUrlParser: true
 }, function (err) {
     if (err) throw err;

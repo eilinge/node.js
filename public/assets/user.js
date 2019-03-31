@@ -1,6 +1,3 @@
-/**
- * 用户信息
- */
 var mongoose = require('./db.js'),
     Schema = mongoose.Schema;
 

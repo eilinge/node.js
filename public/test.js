@@ -32,28 +32,24 @@ function create() {
 }
 
 function insert() {
+    for (var i=0;i<=100;i++){
+        console.log(i)
+        var user = new User({
+            username: 'Tracy McGrady'+ i, //用户账号
+            userpwd: 'abcd', //密码
+            userage: 37+i, //年龄
+            logindate: new Date() //最近登录时间
+        });
+        // console.dir(user)
+        user.save(function (err, res) {
 
-    var user = new User([{
-        username: 'Tracy McGrady', //用户账号
-        userpwd: 'abcd', //密码
-        userage: 37, //年龄
-        logindate: new Date() //最近登录时间
-    },
-    {
-        username: 'eilinge', //用户账号
-        userpwd: 'abcd123', //密码
-        userage: 18, //年龄
-        logindate: new Date() //最近登录时间
-    }]);
-    // console.dir(user)
-    user.save(function (err, res) {
-
-        if (err) {
-            console.log("Error:" + err);
-        } else {
-            console.log("insert successfully Res:" + res);
-        }
-    });
+            if (err) {
+                console.log("Error:" + err);
+            } else {
+                console.log("insert successfully Res:" + res);
+            }
+        });
+    }
 }
 
 function getByConditions() {
@@ -99,6 +95,6 @@ function removeData() {
     })
 }
 // create()
-// insert();
-getByConditions();
+insert();
+// getByConditions();
 // removeData();

@@ -1,0 +1,37 @@
+use NoSQLBoosterSamples
+
+//$text performs a text search on the content of the fields indexed with a text index
+//refer to: https://docs.mongodb.com/manual/reference/operator/query/text/
+
+print('Prepare test data');
+db.posts.drop();
+db.posts.insert(
+  [
+    { _id: 1, subject: "Bulk update array of matching sub document in Mongodb", author: "tom" },
+    { _id: 2, subject: "Python test delete from MongoDB", author: "jenny" },
+    { _id: 3, subject: "counting occurrences of field matching criteria", author: "jack" },
+    { _id: 4, subject: "MongoDB ORM for python", author: "rose" },
+    { _id: 5, subject: "how to wait query result in nodejs to update onther MongoDB qurey", author: "beck" },
+  ]
+);
+
+print('\ncreate text index');
+db.posts.createIndex({ subject: "text" });//To perform text search queri
+
+es, you must have a text index on your collection
+
+
+print(`\nSearch for a Single Word`);
+db.posts.find({ $text: { $search: "nodejs" } }).forEach(print);//_id:5
+
+print(`\nSearch for a Single Word, Case sensitive`);
+db.posts.find({ $text: { $search: "python", $caseSensitive: true } }).forEach(print);//_id:4
+
+print(`\nMatch Any of the Search Terms`);
+db.posts.find({ $text: { $search: "nodejs orm" } }).forEach(print);//_id:5, _id 4, case insensitive by default
+
+print(`\nSearch for a Phrase`);
+db.posts.find({ $text: { $search: `"mongodb orm"` } }).forEach(print);//_id 4
+
+print(`\nExclude Documents That Contain a Term`);
+db.posts.find({ $text: { $search: "python -orm" } }).forEach(print);//_id 2
