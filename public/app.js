@@ -1,24 +1,6 @@
 var express = require("express");
 var controller = require("./controllers/todoController")
 
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/tests', {
-    useNewUrlParser: true
-}, function (err) {
-    if (err) throw err;
-    console.log("connect successfully")
-});
-
-var todoSchema = new mongoose.Schema({
-    item: String
-});
-
-var Todo = mongoose.model("Todo", todoSchema);
-
-var itemOne = Todo({item: "get milk"}).save(function(err){
-    if (err) throw err;
-    console.log("insert successfully")
-})
 
 var app = express()
 
