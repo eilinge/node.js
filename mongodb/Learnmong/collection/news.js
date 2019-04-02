@@ -11,12 +11,14 @@ db.once('open', function() {
 var NewsSchema = mongoose.Schema({
     title: {
         type: String,
-        trim: true
+        trim: true,
+        createIndexes: true,
+        unique: true
     },
     author: String,
     date: {
         type: Date,
-        default: Date.now
+        default: Date.now(),
     },
     context: String
   });
@@ -24,3 +26,25 @@ var NewsSchema = mongoose.Schema({
 var News = mongoose.model('News', NewsSchema, "news");
 
 module.exports = News;
+
+// > db.news.getIndexes()
+// [
+//         {
+//                 "v" : 2,
+//                 "key" : {
+//                         "_id" : 1
+//                 },
+//                 "name" : "_id_",
+//                 "ns" : "tests.news"
+//         },
+//         {
+//                 "v" : 2,
+//                 "unique" : true,
+//                 "key" : {
+//                         "title" : 1
+//                 },
+//                 "name" : "title_1",
+//                 "ns" : "tests.news",
+//                 "background" : true
+//         }
+// ]

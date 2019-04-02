@@ -37,6 +37,11 @@ module.exports = function(app) {
         res.render("home")  // 渲染的route地址
     })
 
+    app.get("/blog", function(req, res){
+        // console.log(req.query)
+        res.render("blog")  // 渲染的route地址
+    })
+
     app.post("/todo", urlencodedParser, function(req, res) {
         if (req.body.item === "") return;
         var todo = new Todo(req.body)
