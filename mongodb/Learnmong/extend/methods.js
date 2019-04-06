@@ -1,22 +1,37 @@
 var mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost:27017/test1", { useNewUrlParser: true }, function(err) {
-    if(err) throw err;
-    console.log("connect successfully")})
+mongoose.connect("mongodb://localhost:27017/test1", {
+    useNewUrlParser: true
+}, function (err) {
+    if (err) throw err;
+    console.log("connect successfully")
+})
 
-var Testschema = new mongoose.Schema({ num:Number, name: String, size: String }); 
+var Testschema = new mongoose.Schema({
+    num: Number,
+    name: String,
+    size: String
+});
 
-var eachData = [{ name:'doc1', size: 'small' }, { name:'doc2', size: 'small' }, { name:'doc3', size: 'big' }]
+var eachData = [{
+    name: 'doc1',
+    size: 'small'
+}, {
+    name: 'doc2',
+    size: 'small'
+}, {
+    name: 'doc3',
+    size: 'big'
+}]
 
-var insert = function(){
-    eachData.forEach(function(data){
+var insert = function () {
+    eachData.forEach(function (data) {
         console.log(data)
         var newtest = new tests1(data);
-        newtest.save(function(err, data){
-            if(err) throw err;
-            console.log(data)}
-        )
-    }
-    )
+        newtest.save(function (err, data) {
+            if (err) throw err;
+            console.log(data)
+        })
+    })
 }
 
 // statics是给model添加方法，methods是给实例(instance)添加方法。

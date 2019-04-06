@@ -1,15 +1,4 @@
-var mongoose = require("mongoose")
-
-// mongoose.connect('mongodb://eilinge:tester@localhost:27017/tests', {useNewUrlParser: true});
-mongoose.connect('mongodb://localhost:27017/tests', {
-  useNewUrlParser: true
-});
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log("you are connect successfully")
-});
+var mongoose = require("./db")
 
 var NewsSchema = mongoose.Schema({
     title: {
@@ -30,25 +19,3 @@ var NewsSchema = mongoose.Schema({
 var News = mongoose.model('News', NewsSchema, "news");
 
 module.exports = News;
-
-// > db.news.getIndexes()
-// [
-//         {
-//                 "v" : 2,
-//                 "key" : {
-//                         "_id" : 1
-//                 },
-//                 "name" : "_id_",
-//                 "ns" : "tests.news"
-//         },
-//         {
-//                 "v" : 2,
-//                 "unique" : true,
-//                 "key" : {
-//                         "title" : 1
-//                 },
-//                 "name" : "title_1",
-//                 "ns" : "tests.news",
-//                 "background" : true
-//         }
-// ]

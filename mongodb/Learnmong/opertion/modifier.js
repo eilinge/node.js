@@ -11,7 +11,7 @@ testnews.save(function(err, doc){
     console.log("insert successfully")
 })
 
-News.find({},function(err, data){
+News.find({}, function (err, data) {
     if (err) throw err;
     console.log("find data from news", data)
 })
