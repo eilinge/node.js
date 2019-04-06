@@ -44,7 +44,7 @@ var deleteOperat = function(wherestr){
     // find(wherestr);
 }
 var find = function(wherestr){
-    // console.log("wherestr", wherestr)
+    // console.log("wherestr", wherestr
     News.find(wherestr, function(err, doc){
         if (err) throw err;
         console.log(doc)
